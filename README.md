@@ -1,6 +1,8 @@
 # Udacity Data Science Project 2
 ## Disaster Response ML Pipeline
 
+This project uses Figure Eight message data to train message classification system. This would be useful to filter our unimportant messages and direct messages to the right people. The trained model can be accessed through a provided web app, instructions will follow.
+
 ### Contents
 
 [Packages](#Packages)
@@ -27,6 +29,7 @@ The following libraries were used in this project
 - pickle: Storing models 
 - Flask: Developing web app
 - plotly: Creating plots
+- json
 
 ## Project Description <a name="Description"></a>
 
@@ -57,8 +60,8 @@ A **Web App** (`app`) which can take text input and displays the models resultin
 - `data/disaster_messages.csv`: messages csv file
 
 - `models/train_classifier.py`: Python script to load data, create gridsearch to train model and store model
-- `models/classifier.pkl`: Optimal model in wider parameter space
-- `models/classifier_balanced.pkl`: Optimal Random forest classifier with class frequency taken into account
+- `models/classifier.pkl` (EXCLUDED SINCE FILE IS TOO LARGE): Optimal model in wider parameter space 
+- `models/classifier_balanced.pkl` (EXCLUDED SINCE FILE IS TOO LARGE): Optimal Random forest classifier with class frequency taken into account
 - `models/classifier_balanced_low.pkl`: Optimal low-storage Random forest classifier with class frequency taken into account
 
 - `app/templates/`: HTML Templates to be used for web app
@@ -66,7 +69,17 @@ A **Web App** (`app`) which can take text input and displays the models resultin
   
 ## Instructions <a name="Instructions"></a>
 
+To use the web app, download the `data`, `models` and `app` folders.
 
-## Additional Discussion <a name="discussions"</a>
+If you'd like to process the data, store this in a database and train a model run the following commands in the root directory:
+1. `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
+2. `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
 
+You can then run the app by opening the apps directory and running the python script as follows:
+1. `cd app`
+2. `python run.py`
+
+The current default uses the prebuilt classifier `models/classifier_balanced_low.pkl`, this is already trained and does not require you to do any data loading or model training.
+Once the web app has been loaded you can try out any prompt! If you're not sure what to use, try this as your starting point:
+"This is an emergency, I need help. Water is building up in my livingroom, I think it's because of the rain."
 
