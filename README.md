@@ -13,7 +13,6 @@ This project uses Figure Eight message data to train message classification syst
 
 [Instructions](#Instructions)
 
-[Additional Discussion](#Discussions)
 
 ## Packages <a name="Packages"></a>
 
