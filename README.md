@@ -11,6 +11,8 @@
 
 [Instructions](#Instructions)
 
+[Additional Discussion](#Discussions)
+
 ## Packages <a name="Packages"></a>
 
 The following libraries were used in this project
@@ -47,8 +49,24 @@ A **Web App** (`app`) which can take text input and displays the models resultin
 
 ## Files <a name="Files"></a>
 
+- `README.md`: Read me file (being read by you now)
 
+- `data/process_data.py`: Python script to process data, containing ETL pipeline
+- `data/DisasterResponse.db`: Disaster Response Database
+- `data/disaster_categories.csv`: categories csv file
+- `data/disaster_messages.csv`: messages csv file
+
+- `models/train_classifier.py`: Python script to load data, create gridsearch to train model and store model
+- `models/classifier.pkl`: Optimal model in wider parameter space
+- `models/classifier_balanced.pkl`: Optimal Random forest classifier with class frequency taken into account
+- `models/classifier_balanced_low.pkl`: Optimal low-storage Random forest classifier with class frequency taken into account
+
+- `app/templates/`: HTML Templates to be used for web app
+- `app/run.py`: Python script to launch web app
+  
 ## Instructions <a name="Instructions"></a>
 
 
-## Additional Discussions <a name="discussions"</a>
+## Additional Discussion <a name="discussions"</a>
+
+
