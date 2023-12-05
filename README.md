@@ -61,7 +61,7 @@ A **Web App** (`app`) which can take text input and displays the models resultin
 - `models/train_classifier.py`: Python script to load data, create gridsearch to train model and store model
 - `models/classifier.pkl` (EXCLUDED SINCE FILE IS TOO LARGE): Optimal model in wider parameter space 
 - `models/classifier_balanced.pkl` (EXCLUDED SINCE FILE IS TOO LARGE): Optimal Random forest classifier with class frequency taken into account
-- `models/classifier_balanced_low.pkl`: Optimal low-storage Random forest classifier with class frequency taken into account
+- `models/classifier_balanced_low.pkl` (EXCLUDED SINCE FILE IS TOO LARGE): Alternative Random forest classifier with class frequency taken into account
 
 - `app/templates/`: HTML Templates to be used for web app
 - `app/run.py`: Python script to launch web app
@@ -78,7 +78,7 @@ You can then run the app by opening the apps directory and running the python sc
 1. `cd app`
 2. `python run.py`
 
-The current default uses the prebuilt classifier `models/classifier_balanced_low.pkl`, this is already trained and does not require you to do any data loading or model training.
+The current default uses the prebuilt classifier `models/classifier_balanced_low.pkl`, this can be modified to use your classifier, just replace with `models/YOURCLASSIFIERNAME`.
 Once the web app has been loaded you can try out any prompt! If you're not sure what to use, try this as your starting point:
 "This is an emergency, I need help. Water is building up in my livingroom, I think it's because of the rain."
 
