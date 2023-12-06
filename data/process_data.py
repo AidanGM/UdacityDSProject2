@@ -40,9 +40,15 @@ def clean_data(df):
         categories[column] = categories[column].astype(str).str[-1]
         categories[column] = categories[column].astype(int)
         
+    
+    
+    
     df = df.drop(['categories'], axis=1)
 
     df = pd.concat([df, categories], axis=1)
+    
+    # dropping rows where related is 2
+    df = df[df['related'] != 2]
     
     # removing duplicates
     df = df.drop_duplicates()
@@ -60,7 +66,7 @@ def save_data(df, database_filename):
     saves data in database under "MessageCategories"
     '''
     engine = create_engine('sqlite:///{}'.format(database_filename))
-    df.to_sql('MessageCategories', engine, index=False) 
+    df.to_sql('MessageCategories', engine, index=False, if_exists='replace') 
 
 
 def main():
