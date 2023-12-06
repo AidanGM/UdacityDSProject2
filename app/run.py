@@ -75,7 +75,7 @@ def index():
             ],
 
             'layout': {
-                'title': 'Top 10 Categories',
+                'title': 'Top 15 Categories',
                 'yaxis': {
                     'title': "Count"
                 },
