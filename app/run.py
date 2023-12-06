@@ -30,7 +30,7 @@ engine = create_engine('sqlite:///../data/DisasterResponse.db')
 df = pd.read_sql_table('MessageCategories', engine)
 
 # load model
-model = joblib.load("../models/classifier_balanced_low.pkl")
+model = joblib.load("../models/classifier.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
@@ -39,12 +39,14 @@ model = joblib.load("../models/classifier_balanced_low.pkl")
 def index():
     
     # extract data needed for visuals
-    # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
     
-    # create visuals
-    # TODO: Below is an example - modify to create your own visuals
+    # create visuals   
+    sum_cat = df.iloc[:, 4:].sum()
+    top_cat = sum_cat.sort_values(ascending=False)[:15]
+    top_cat_names = list(top_cat.index)
+    
     graphs = [
         {
             'data': [
@@ -61,6 +63,24 @@ def index():
                 },
                 'xaxis': {
                     'title': "Genre"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x=top_cat_names,
+                    y=top_cat
+                )
+            ],
+
+            'layout': {
+                'title': 'Top 10 Categories',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Categories"
                 }
             }
         }
